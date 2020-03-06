@@ -16,6 +16,7 @@ export default (props) => {
     return (
         <div className={styles['select']}>
             <Input
+                styles={styles['input']}
                 handleSubmit={props.handleSubmit}
                 ref={inputRef}
             ></Input>

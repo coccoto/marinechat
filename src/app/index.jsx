@@ -14,7 +14,7 @@ export default () => {
 
     const [bool, setBool] = React.useState ({
         run: false,
-        select: true,
+        select: false,
     })
 
     React.useEffect(() => {
@@ -35,6 +35,8 @@ export default () => {
 
     return (
         <div style={{height: '100vh'}}>
+            <div className={styles['sea']}></div>
+            <div className={styles['circle']}></div>
             {! bool.run ?
                 <Index
                     setBool={(i) => {setBool(i)}}
