@@ -1,25 +1,26 @@
 import React from 'react'
 // atoms
-import Input from '@/app/components/atoms/input'
 import Button from '@/app/components/atoms/button'
-// styles
-import styles from '@/app/styles/components/molecules/form.module.sass'
+import InputText from '@/app/components/atoms/InputText'
 
 export default (props) => {
 
-    const inputRef = React.useRef()
+    const inputTextRef = React.useRef()
 
+    /**
+     * 子要素 Button のイベントで発火
+     * inputText が所有するメソッドを親から実行する。
+     */
     const handleSubmit = () => {
-        inputRef.current.handleSubmit()
+        inputTextRef.current.handleSubmit()
     }
 
     return (
-        <div className={styles['select']}>
-            <Input
-                styles={styles['input']}
+        <div>
+            <InputText
                 handleSubmit={props.handleSubmit}
-                ref={inputRef}
-            ></Input>
+                ref={inputTextRef}
+            ></InputText>
             <Button
                 onClick={() => {handleSubmit()}}
                 label={props.label}

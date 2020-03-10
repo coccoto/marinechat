@@ -1,9 +1,10 @@
 import React from 'react'
-// styles
-import styles from '@/app/styles/components/atoms/input.module.sass'
 
 export default React.forwardRef((props, ref) => {
 
+    /**
+     * 親要素 index の handleSubmit を実行、テキストを index に渡す。
+     */
     React.useImperativeHandle(ref, () => ({
         handleSubmit: () => {
             props.handleSubmit(text)

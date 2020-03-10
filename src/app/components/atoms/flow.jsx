@@ -4,9 +4,9 @@ import useSnapshot from '@/app/hooks/useSnapshot'
 
 export default (props) => {
 
-    const Snapshot = useSnapshot(props)
+    const Snapshot = useSnapshot(props.roomRef)
 
     return (
-        <div>{Snapshot.messages}</div>
+        <div>{Snapshot.data}</div>
     )
 }

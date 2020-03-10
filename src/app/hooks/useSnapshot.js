@@ -1,32 +1,37 @@
 import React from 'react'
 
-export default (props) => {
+export default (roomRef) => {
 
-    const [messages, setMessages] = React.useState()
+    const [data, setData] = React.useState()
 
+    /**
+     * データベースからデータを非同期で取得する。
+     */
     React.useEffect(() => {
-        props.roomRef.orderBy('date').onSnapshot((snapshot) => {
-            const messages = []
+        roomRef.orderBy('date').onSnapshot((snapshot) => {
+            const docs = []
 
             snapshot.forEach((doc) => {
-                const data = doc.data()
+                const ref = doc.data()
 
-                const message = data.message
-                const date = new Date(data.date.toDate())
+                // 送信内容を取得する。
+                const message = ref.message
+                const date = new Date(ref.timestamp.toDate())
 
-                const timestamp = {
+                const time = {
                     hour: date.getHours(),
-                    minute: date.getMinutes()
+                    minute: date.getMinutes(),
                 }
 
-                messages.push(<div key={doc.id}>{timestamp.hour}:{timestamp.minute} - {message}</div>)
+                // 取得したデータから JSX を生成する。
+                docs.push(<div key={doc.id}>{time.hour} {time.minute} - {message}</div>)
             })
 
-            setMessages(messages)
+            setData(docs)
         })
     }, [])
 
     return {
-        messages: messages
+        data: data
     }
 }
