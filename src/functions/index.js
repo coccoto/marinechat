@@ -1,7 +1,11 @@
-import FirebaseFunctions from 'firebase-functions'
-import FirebaseTools from 'firebase-tools'
-import Database, { Timestamp } from '@/firebase/index'
+/*
+const FirebaseFunctions = require('firebase-functions')
 
+export const helloWorld = FirebaseFunctions.https.onRequest((request, response) => {
+    response.send("Hello from Firebase!");
+})
+
+/*
 exports.create = FirebaseFunctions.firestore
     .document('rooms/{roomId}/contents/{docId}')
     .onCreate((snap, context) => {
@@ -20,3 +24,4 @@ exports.delete = FirebaseFunctions.firestore
     .onWrite((change, context) => {
         const data = change.after.data()
 })
+*/

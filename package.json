@@ -11,14 +11,16 @@
     "release:clean": "rimraf dist",
     "release:production": "webpack --mode production",
     "firebase:login": "firebase login",
-    "firebase:init": "firebase init"
+    "firebase:init": "firebase init",
+    "firebase:serve": "firebase serve",
+    "firebase:deploy": "firebase deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "firebase": "^7.9.3",
-    "firebase-admin": "^8.9.2",
+    "firebase-admin": "^8.10.0",
     "firebase-functions": "^3.3.0",
     "firebase-tools": "^7.14.0",
     "react": "^16.13.0",
