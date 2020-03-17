@@ -68,7 +68,7 @@ const rules = [
                 loader: 'sass-resources-loader',
                 options: {
                     resources: [
-                        (path.resolve(__dirname, 'src', 'app', 'styles', 'resources', '*'))
+                        path.resolve(__dirname, 'src', 'app', 'styles', 'resources', '*.sass')
                     ]
                 }
             }
@@ -88,7 +88,7 @@ const rules = [
                 loader: 'sass-resources-loader',
                 options: {
                     resources: [
-                        (path.resolve(__dirname, 'src', 'app', 'styles', 'resources', '*'))
+                        path.resolve(__dirname, 'src', 'app', 'styles', 'resources', '*.sass')
                     ]
                 }
             }
