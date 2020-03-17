@@ -1,8 +1,11 @@
-const FirebaseFunctions = require('firebase-functions')
 
-exports.helloWorld = FirebaseFunctions.https.onRequest((request, response) => {
-    response.send("Hello from Firebase!");
-});
+import FirebaseFunctions from 'firebase-functions'
+
+export const Delete = FirebaseFunctions.firestore
+    .document('rooms/{roomId}/contents/{contentId}')
+    .onWrite((change, context) => {
+        console.log('Aa')
+})
 
 /*
 exports.create = FirebaseFunctions.firestore
