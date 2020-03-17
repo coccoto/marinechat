@@ -5,16 +5,15 @@
   "main": "index.js",
   "scripts": {
     "server": "webpack-dev-server -d",
-    "build": "run-s build:development",
-    "build:development": "webpack --mode development",
+    "build": "webpack --mode development --config webpack.config.js",
+    "build:functions": "webpack --mode development --config functions/webpack.config.js",
     "release": "run-s release:clean release:production",
     "release:clean": "rimraf dist",
     "release:production": "webpack --mode production",
     "firebase:login": "firebase login",
     "firebase:init": "firebase init",
     "firebase:serve": "firebase serve",
-    "firebase:deploy": "firebase deploy",
-    "build:functions": "webpack --config functions/webpack.config.js --mode development"
+    "firebase:deploy": "firebase deploy"
   },
   "keywords": [],
   "author": "",
