@@ -16,7 +16,7 @@ export default (roomRef) => {
 
                 // 送信内容を取得する。
                 const message = ref.message
-                const date = new Date(ref.timestamp.toDate())
+                const date = new Date(ref.date.toDate())
 
                 const time = {
                     hour: date.getHours(),

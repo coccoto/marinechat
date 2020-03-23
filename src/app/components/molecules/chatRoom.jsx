@@ -16,7 +16,8 @@ export default (props) => {
 
         document.set({
             // id: props.id, 未設定のためコメントアウト
-            message: text
+            message: text,
+            date: new Date(),
         })
     }
 
