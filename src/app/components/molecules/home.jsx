@@ -1,6 +1,7 @@
 import React from 'react'
 // molecules
-import SelectForm from '@/app/components/molecules/selectForm'
+import Popup from '@/app/components/molecules/popup'
+import SelectRoom from '@/app/components/molecules/selectRoom'
 
 export default (props) => {
 
@@ -18,9 +19,12 @@ export default (props) => {
 
     return (
         <div>
-            <SelectForm
+            <SelectRoom
+                setBool={props.setBool}
+            ></SelectRoom>
+            <Popup
                 handleSubmit={(i) => {handleSubmit(i)}}
-            ></SelectForm>
+            ></Popup>
         </div>
     )
 }

@@ -17,9 +17,10 @@ export default (props) => {
 
         // データベースにデータを書き込む。
         document.set({
-            id: props.id,
-            message: text,
             date: date,
+            accountId: props.account.accountId,
+            name: props.account.name,
+            message: text,
         })
     }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 // molecules
 import ChatRoom from '@/app/components/molecules/chatRoom'
-import Index from '@/app/components/molecules/index'
+import Home from '@/app/components/molecules/home'
 // firebase
 import Database from '@/firebase/index'
 
@@ -12,25 +12,30 @@ const random = () => {
 
 export default () => {
 
-    const [id] = React.useState(random())
-    const [roomRef, setRoomRef] = React.useState(Database.collection('rooms').doc(id).collection('contents'))
+    // ユーザー情報
+    const [account] = React.useState({
+        accountId: random(),
+        name: 'ruru',
+    })
+
+    const [roomRef, setRoomRef] = React.useState(Database.collection('rooms').doc(random()).collection('contents'))
 
     /**
-     * bool.run ルームの入室状況を判定
+     * bool.run ルームの入室状況を判定する。
      */
     const [bool, setBool] = React.useState({run: false})
 
     return (
         <div>
             {! bool.run ?
-                <Index
+                <Home
                     setRoomRef={(i) => {setRoomRef(Database.collection('rooms').doc(i).collection('contents'))}}
                     setBool={() => {setBool({run: true})}}
-                ></Index>
+                ></Home>
             :
                 <ChatRoom
                     roomRef={roomRef}
-                    id={id}
+                    account={account}
                 ></ChatRoom>
             }
         </div>
