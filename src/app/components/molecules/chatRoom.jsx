@@ -12,12 +12,14 @@ export default (props) => {
      * @param {string} text 孫要素 inputText が取得した文字列
      */
     const handleSubmit = (text) => {
+        const date = new Date()
         const document = props.roomRef.doc()
 
+        // データベースにデータを書き込む。
         document.set({
-            // id: props.id, 未設定のためコメントアウト
+            id: props.id,
             message: text,
-            date: new Date(),
+            date: date,
         })
     }
 

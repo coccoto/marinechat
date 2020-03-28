@@ -3,11 +3,17 @@ import React from 'react'
 import ChatRoom from '@/app/components/molecules/chatRoom'
 import Index from '@/app/components/molecules/index'
 // firebase
-import Database, { Timestamp } from '@/firebase/index'
+import Database from '@/firebase/index'
+
+const random = () => {
+    let random = Math.floor(Math.random() * 10000)
+    return String(random).padStart(4, 0)
+}
 
 export default () => {
 
-    const [roomRef, setRoomRef] = React.useState(Database.collection('rooms').doc('0001').collection('contents'))
+    const [id] = React.useState(random())
+    const [roomRef, setRoomRef] = React.useState(Database.collection('rooms').doc(id).collection('contents'))
 
     /**
      * bool.run ルームの入室状況を判定
@@ -16,12 +22,15 @@ export default () => {
 
     return (
         <div>
-            {bool.run ?
-                <Index></Index>
+            {! bool.run ?
+                <Index
+                    setRoomRef={(i) => {setRoomRef(Database.collection('rooms').doc(i).collection('contents'))}}
+                    setBool={() => {setBool({run: true})}}
+                ></Index>
             :
                 <ChatRoom
                     roomRef={roomRef}
-                    Timestamp={Timestamp}
+                    id={id}
                 ></ChatRoom>
             }
         </div>

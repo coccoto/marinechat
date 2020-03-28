@@ -15,6 +15,7 @@ export default (roomRef) => {
                 const ref = doc.data()
 
                 // 送信内容を取得する。
+                const id = ref.id
                 const message = ref.message
                 const date = new Date(ref.date.toDate())
 
@@ -24,7 +25,7 @@ export default (roomRef) => {
                 }
 
                 // 取得したデータから JSX を生成する。
-                docs.push(<div key={doc.id}>{time.hour} {time.minute} - {message}</div>)
+                docs.push(<div key={doc.id}>{id} - {time.hour}:{time.minute} - {message}</div>)
             })
 
             setData(docs)
