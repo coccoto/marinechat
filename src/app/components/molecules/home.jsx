@@ -1,7 +1,8 @@
 import React from 'react'
 // molecules
-import Popup from '@/app/components/molecules/popup'
-import SelectRoom from '@/app/components/molecules/selectRoom'
+import Create from '@/app/components/molecules/home/popup/create'
+import Search from '@/app/components/molecules/home/popup/search'
+import Buttons from '@/app/components/molecules/home/buttons'
 
 export default (props) => {
 
@@ -10,21 +11,28 @@ export default (props) => {
      */
     const [bool, setBool] = React.useState({popup: false})
 
-    const handleSubmit = (text) => {
-        // データベースを設定する。
-        props.setRoomRef(text)
-        // チャットルームに入室する。
-        props.setBool()
-    }
-
     return (
         <div>
-            <SelectRoom
+            <Buttons
                 setBool={props.setBool}
-            ></SelectRoom>
-            <Popup
-                handleSubmit={(i) => {handleSubmit(i)}}
-            ></Popup>
+            ></Buttons>
+            <Create
+                handleSubmit={(i) => {
+                    // アカウント名を設定する。
+                    props.setAccount(i)
+                    // チャットルームに入室する。
+                    props.setBool()
+                }}
+            ></Create>
+            <Search
+                handleSubmit={(i) => {
+                    // データベースを設定する。
+                    props.setRoomRef(i)
+                    // チャットルームに入室する。
+                    props.setBool()
+                }}
+                setAccount={props.setAccount}
+            ></Search>
         </div>
     )
 }

@@ -16,7 +16,9 @@ export default React.forwardRef((props, ref) => {
     return (
         <input
             className={props.styles}
-            onChange={(event) => {setText(event.target.value)}}
+            onChange={(event) => {
+                setText(event.target.value)
+            }}
         ></input>
     )
 })

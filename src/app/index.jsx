@@ -2,26 +2,37 @@ import React from 'react'
 // molecules
 import ChatRoom from '@/app/components/molecules/chatRoom'
 import Home from '@/app/components/molecules/home'
+// hooks
+import useRandom from '@/app/hooks/useRandom'
 // firebase
 import Database from '@/firebase/index'
 
-const random = () => {
-    let random = Math.floor(Math.random() * 10000)
-    return String(random).padStart(4, 0)
+const collection = (roomId) => {
+    return Database.collection('rooms').doc(roomId).collection('contents')
 }
 
 export default () => {
 
-    // ユーザー情報
-    const [account] = React.useState({
-        accountId: random(),
+    /**
+     * ルーム番号・アカウントID に利用する4桁の乱数を生成する。
+     */
+    const random = useRandom(4)
+
+    console.log(random)
+
+    /**
+     * ユーザー情報
+     * 名前の初期値は ruruchat に因んで ruru とする。
+     */
+    const [account, setAccount] = React.useState({
+        accountId: random,
         name: 'ruru',
     })
 
-    const [roomRef, setRoomRef] = React.useState(Database.collection('rooms').doc(random()).collection('contents'))
+    const [roomRef, setRoomRef] = React.useState(collection(random))
 
     /**
-     * bool.run ルームの入室状況を判定する。
+     * bool.run チャットルームの入室状況を判定する。
      */
     const [bool, setBool] = React.useState({run: false})
 
@@ -29,7 +40,8 @@ export default () => {
         <div>
             {! bool.run ?
                 <Home
-                    setRoomRef={(i) => {setRoomRef(Database.collection('rooms').doc(i).collection('contents'))}}
+                    setAccount={(i) => {setAccount({...account, name: i})}}
+                    setRoomRef={(i) => {setRoomRef(collection(i))}}
                     setBool={() => {setBool({run: true})}}
                 ></Home>
             :

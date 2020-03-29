@@ -7,7 +7,7 @@ export default (props) => {
     return (
         <Form
             handleSubmit={props.handleSubmit}
-            label={'Enter'}
+            label={'Create'}
         ></Form>
     )
 }

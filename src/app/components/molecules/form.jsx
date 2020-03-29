@@ -1,7 +1,7 @@
 import React from 'react'
 // atoms
 import Button from '@/app/components/atoms/button'
-import InputText from '@/app/components/atoms/InputText'
+import InputText from '@/app/components/atoms/inputText'
 
 export default (props) => {
 
