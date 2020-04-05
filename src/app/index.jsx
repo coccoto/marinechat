@@ -18,8 +18,6 @@ export default () => {
      */
     const random = useRandom(4)
 
-    console.log(random)
-
     /**
      * ユーザー情報
      * 名前の初期値は ruruchat に因んで ruru とする。

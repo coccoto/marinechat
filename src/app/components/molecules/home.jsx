@@ -2,7 +2,9 @@ import React from 'react'
 // molecules
 import Create from '@/app/components/molecules/home/popup/create'
 import Search from '@/app/components/molecules/home/popup/search'
-import Buttons from '@/app/components/molecules/home/buttons'
+import SelectButton from '@/app/components/molecules/home/selectButton'
+// styles
+import styles from '@/app/styles/components/molecules/home.module.sass'
 
 export default (props) => {
 
@@ -12,10 +14,10 @@ export default (props) => {
     const [bool, setBool] = React.useState({popup: false})
 
     return (
-        <div>
-            <Buttons
+        <div className={styles['container']}>
+            <SelectButton
                 setBool={props.setBool}
-            ></Buttons>
+            ></SelectButton>
             <Create
                 handleSubmit={(i) => {
                     // アカウント名を設定する。

@@ -1,0 +1,11 @@
+.button
+    @include grid
+    height: 3.75rem
+    width: 15rem
+    font-size: 1.5rem
+    border: 1px solid map-get($colors, border)
+    box-shadow: 0 0.1rem 0.1rem 0 rgba(0,0,0,0.2)
+
+    &-bottom
+        @extend .button
+        margin-top: 5rem
