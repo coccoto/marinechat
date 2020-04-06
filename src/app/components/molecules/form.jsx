@@ -2,6 +2,8 @@ import React from 'react'
 // atoms
 import Button from '@/app/components/atoms/button'
 import InputText from '@/app/components/atoms/inputText'
+// styles
+import styles from '@/app/styles/components/molecules/form.module.sass'
 
 export default (props) => {
 
@@ -16,12 +18,14 @@ export default (props) => {
     }
 
     return (
-        <div>
+        <div className={styles['container']}>
             <InputText
                 handleSubmit={props.handleSubmit}
                 ref={inputTextRef}
+                placeholder={props.placeholder}
             ></InputText>
             <Button
+                styles={props.styles}
                 onClick={() => {handleSubmit()}}
                 label={props.label}
             ></Button>

@@ -10,11 +10,12 @@ export default (props) => {
         <div>
             <Button
                 styles={styles['button']}
-                onClick={props.setBool}
+                onClick={() => {props.setBool('create')}}
                 label={'Create'}
             ></Button>
             <Button
-                styles={styles['button-bottom']}
+                styles={styles['button']}
+                onClick={() => {props.setBool('search')}}
                 label={'Serach'}
             ></Button>
         </div>

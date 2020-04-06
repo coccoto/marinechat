@@ -1,4 +1,6 @@
 import React from 'react'
+// styles
+import styles from '@/app/styles/components/atoms/inputText.module.sass'
 
 export default React.forwardRef((props, ref) => {
 
@@ -15,10 +17,11 @@ export default React.forwardRef((props, ref) => {
 
     return (
         <input
-            className={props.styles}
+            className={styles['input']}
             onChange={(event) => {
                 setText(event.target.value)
             }}
+            placeholder={props.placeholder}
         ></input>
     )
 })

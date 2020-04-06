@@ -3,6 +3,8 @@ import React from 'react'
 import InputText from '@/app/components/atoms/inputText'
 // molecules
 import Form from '@/app/components/molecules/form'
+// styles
+import styles from '@/app/styles/components/molecules/home/popup/search.module.sass'
 
 export default (props) => {
 
@@ -26,14 +28,17 @@ export default (props) => {
     }
 
     return (
-        <div>
+        <div className={styles[props.styles]}>
             <InputText
                 handleSubmit={props.setAccount}
                 ref={inputTextRef}
+                placeholder={'Please enter your name.'}
             ></InputText>
             <Form
+                styles={styles['button']}
                 handleSubmit={(i) => {handleSubmit(i)}}
                 label={'Enter'}
+                placeholder={'Please enter your room number.'}
             ></Form>
         </div>
     )
