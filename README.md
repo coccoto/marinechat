@@ -1,0 +1,3 @@
+# ruruchat
+
+Development discontinued.
