@@ -1,3 +1,3 @@
-# ruruchat
+# chatapp
 
 Development discontinued.

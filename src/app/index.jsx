@@ -20,11 +20,10 @@ export default () => {
 
     /**
      * ユーザー情報
-     * 名前の初期値は ruruchat に因んで ruru とする。
      */
     const [account, setAccount] = React.useState({
         accountId: random,
-        name: 'ruru',
+        name: 'coccoto',
     })
 
     const [roomRef, setRoomRef] = React.useState(collection(random))
